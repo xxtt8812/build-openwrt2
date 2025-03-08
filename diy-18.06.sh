@@ -259,7 +259,7 @@ color cy "添加&替换插件"
 # clone_all https://github.com/xiaorouji/openwrt-passwall-packages
 # clone_all https://github.com/xiaorouji/openwrt-passwall
 # clone_all https://github.com/xiaorouji/openwrt-passwall2
-clone_dir https://github.com/vernesong/OpenClash luci-app-openclash
+# clone_dir https://github.com/vernesong/OpenClash luci-app-openclash
 
 # Themes
 # git_clone 18.06 https://github.com/kiddin9/luci-theme-edge
@@ -338,14 +338,6 @@ for e in $(ls -d $destination_dir/luci-*/po feeds/luci/applications/luci-*/po); 
     fi
 done
 status "加载个人设置"
-
-# 开始下载openchash运行内核
-[ $CLASH_KERNEL ] && {
-    begin_time=$(date '+%H:%M:%S')
-    chmod +x $GITHUB_WORKSPACE/scripts/preset-clash-core.sh
-    $GITHUB_WORKSPACE/scripts/preset-clash-core.sh $CLASH_KERNEL
-    status "下载openchash运行内核"
-}
 
 # 开始下载zsh终端工具
 [[ $ZSH_TOOL = 'true' ]] && {
